@@ -1,21 +1,32 @@
 class Vector {	
-	constructor() 
-		if(typeof arguments[0] == "Array")
-			this.coord = arguments;
-		else(typeof arguments[0] == "Number")
-			for(var i = 0; i < arguments[0])
-				this.coord.push = new Number(0);
-	}
+    constructor() {
+        if(arguments.length > 1)
+            this.coords = arguments;
+        else
+            for(var i = 0; i < arguments[0], i++)
+                this.coord.push = new Number(0);
+    }
 	
-	get length {
-		return Math.sqrt(this.X*this.X + this.Y*this.Y);
-	}
+    get length {
+        return vectorLengthCalculator(this.coords);
+    }
+
+    static vectorLengthCalculator(coords) {
+        if(coords.length > 1) {
+            var first = coords[0];
+            coords.splice(0, 1);
+            return Math.sqrt(first * first + vectorLengthCalculator(coords));
+        } else {
+            return coords[0] * coords[0];
+        }
+    }
 	
-	multiply(number) {
-		if(number instanceof Vector) {
-			for(var i = 0; i < number.length; i++) this.coord[i] *= number[i];
-		} else {
-			for(var i = 0; i < this.coords.length; i++) this.coord[i] *= number;
-		}
-	}
+    multiply(multipler) {
+        if(multipler instanceof Vector)
+            for(var i = 0; i < number.length; i++)
+                this.coords[i] *= multipler[i];
+        else
+            for(var i = 0; i < this.coords.length; i++)
+                this.coords[i] *= multipler;
+    }
 }
