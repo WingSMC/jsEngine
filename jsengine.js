@@ -8,14 +8,14 @@ class Vector {
     }
 	
     get length {
-        return vectorLengthCalculator(this.coords);
+        return Math.sqrt(vectorLengthCalculator(this.coords));
     }
 
-    static vectorLengthCalculator(coords) {
+    static vectorLengthCalculatorHelper(coords) {
         if(coords.length > 1) {
             var first = coords[0];
             coords.splice(0, 1);
-            return Math.sqrt(first * first + vectorLengthCalculator(coords));
+            return first * first + vectorLengthCalculator(coords);
         } else {
             return coords[0] * coords[0];
         }
