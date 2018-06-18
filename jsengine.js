@@ -76,20 +76,30 @@ class Camera {
 }
 
 class RenderedAsset{
+    constructor(location) {
+        this.location = new Vector3(location);
+        this.rotation = new Vector3();
+    }
     tick() {}
     draw() {}
 }
 
 class Mesh extends RenderedAsset {
-
+    constructor() {
+        // has collision
+    }
 }
 
 class MovableMesh extends Mesh {
-
+    constructor() {
+        // can move
+        this.movement = new Vector3();
+        this.angularspeed = new Vector3();
+    }
 }
 
 class Player extends MovableMesh {
-
+    // restricted by map bounds and recives controller input
 }
 
 class Vector3 {
