@@ -1,4 +1,4 @@
-var loaded = new Boolean(false);
+var loaded = false;
 var jsEngine;
 import 'user_defined_js';
 /*
@@ -9,6 +9,7 @@ import 'user_defined_js';
 *       jsEngine = new EngineCore(renderTarget);
 *   }
 */
+
 
 class EngineCore {
     constructor(renderTarget) {
@@ -152,3 +153,11 @@ class Vector3 {
         return vec1;
     }
 }
+
+/* Shaders
+
+void main() {
+    float vertex = vec4(0.0, 0.0, 0.0, 1.0);
+}
+
+//*/
